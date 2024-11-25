@@ -1,0 +1,984 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/*====================
+    Variables y Reset
+=====================*/
+:root {
+    /* Colores */
+    --azul-oscuro: #2C3E50;   /* Azul grisáceo oscuro */
+    --azul-medio: #34495E;    /* Azul medianoche */
+    --azul-claro: #5D6D7E;    /* Azul grisáceo claro */
+    --gris-claro: #ECF0F1;    /* Gris muy claro */
+    --gris-oscuro: #2C3E50;   /* Gris azulado oscuro */
+    --verde: #27AE60;
+    
+    /* Tipografía */
+    --font-family-roboto: 'Roboto', sans-serif;
+    --font-family-open-sans: 'Open Sans', sans-serif;
+    --font-family-lora: 'Lora', serif;
+    --font-size: 1rem;
+}
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*====================
+    Estilos Base
+=====================*/
+/* Usar Roboto como fuente predeterminada */
+body {
+    font-family: var(--font-family-roboto);
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    font-size: calc(var(--font-size) + 0.2rem);
+}
+/* Usar Open Sans para los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-open-sans);
+}
+
+/* Usar Lora para los párrafos */
+p {
+    font-family: var(--font-family-lora);
+}
+
+section {
+    padding: calc(4vh + 2rem) calc(6vw + 1rem); 
+    text-align: center;
+    color: var(--gris-oscuro);
+    background-color: var(--gris-claro); 
+}
+
+section:nth-child(odd) {
+    background-color: var(--azul-medio); 
+    color: var(--gris-claro); 
+}
+
+/*====================
+    Navegación
+=====================*/
+/* Contenedor principal de navegación fijo */
+nav {
+    background-color: var(--azul-oscuro);
+    padding: 1.2rem 2.5rem;
+    position: fixed; /* Mantiene el nav fijo al hacer scroll */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Asegura que el nav esté siempre por encima */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Efecto de cristal esmerilado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Lista de navegación centrada */
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Espacio entre elementos */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Estilo de los enlaces de navegación */
+nav ul li a {
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
+    position: relative; /* Para el subrayado */
+    letter-spacing: 0.5px;
+}
+
+/* Línea de subrayado en hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--verde);
+    transition: all 0.3s ease;
+    transform: translateX(-50%); /* Centra la línea */
+}
+
+/* Efectos hover del enlace */
+nav ul li a:hover {
+    color: var(--verde);
+    transform: translateY(-2px); /* Eleva ligeramente el enlace */
+}
+
+/* Animación de la línea en hover */
+nav ul li a:hover::after {
+    width: 100%; /* Expande la línea al 100% */
+}
+
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--gris-claro);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+
+/*====================
+    Botones y Enlaces
+=====================*/
+/* Estilo base del botón GitHub */
+.github-link {
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 1.2rem 2.4rem;
+    background: linear-gradient(45deg, var(--azul-medio), var(--verde)); /* Gradiente diagonal */
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave personalizada */
+    display: inline-block;
+    margin-top: 2rem;
+    position: relative; /* Para el efecto de brillo */
+    overflow: hidden; /* Oculta el brillo fuera del botón */
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto hover del botón */
+.github-link:hover {
+    transform: translateY(-3px); /* Eleva el botón */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+    background: linear-gradient(45deg, var(--verde), var(--azul-medio)); /* Invierte el gradiente */
+}
+
+/* Elemento para el efecto de brillo */
+.github-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fuera del botón */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2), /* Brillo central */
+        transparent
+    );
+    transition: 0.5s;
+}
+
+/* Animación del efecto de brillo */
+.github-link:hover::before {
+    left: 100%; /* Mueve el brillo hacia la derecha */
+}
+
+/*====================
+    Secciones
+=====================*/
+/* Hero - Sección principal de bienvenida */
+#hero {
+    min-height: 100vh; /* Altura mínima del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gris-oscuro);
+    padding: 4rem 4rem;
+    background-color: var(--gris-claro);
+}
+
+/* Contenedor principal del hero */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem; /* Espacio entre elementos */
+    width: min(90%, 1200px); /* Ancho responsivo con máximo */
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permite el quiebre en móviles */
+}
+
+/* Contenedor del texto principal */
+.hero-text {
+    flex: 1 1 600px; /* Base, shrink y grow */
+    max-width: 100%;
+}
+
+/* Título principal con animación */
+.hero-text h1 {
+    font-size: 4rem;
+    color: var(--verde);
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out; /* Animación de entrada */
+}
+
+/* Subtítulo con animación retrasada */
+.hero-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--gris-oscuro);
+    animation: fadeIn 2s ease-in-out 0.5s; /* Retraso de 0.5s */
+}
+
+/* Párrafo descriptivo con animación */
+.hero-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--gris-oscuro);
+    animation: fadeIn 2s ease-in-out 1s; /* Retraso de 1s */
+}
+
+/* Iconos de redes sociales */
+.hero-text .social-icons i {
+    font-size: 3rem;
+    margin-right: 1rem;
+    transition: transform 0.3s; /* Transición suave al hover */
+    color: var(--gris-oscuro);
+}
+
+/* Imagen del hero */
+.hero-img {
+    flex: 0 1 300px; /* No crece, puede encoger, base 300px */
+    width: 300px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Mantiene proporción de la imagen */
+}
+
+/*====================
+    Sección Servicios
+=====================*/
+/* Contenedor principal de servicios con gradiente */
+#services {
+    padding: 6vh 8vw;
+    text-align: center;
+    background: linear-gradient(to right, var(--azul-oscuro), var(--azul-medio)); /* Gradiente de fondo */
+    border-radius: 15px;
+    color: var(--gris-claro);
+}
+
+/* Título de la sección */
+#services h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    color: var(--gris-claro);
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Contenedor flexible para las tarjetas */
+.service-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite el quiebre en móviles */
+    justify-content: center;
+    gap: 2rem; /* Espacio entre tarjetas */
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Tarjeta individual de servicio */
+.service-card {
+    flex: 1 1 calc(300px + 2rem); /* Base, shrink y grow */
+    min-width: calc(280px + 1rem);
+    max-width: calc(350px + 2rem);
+    background: rgba(255,255,255,0.1); /* Fondo semi-transparente */
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: var(--gris-claro);
+    transition: all 0.3s ease; /* Transición suave para todos los efectos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icono de la tarjeta */
+.service-card i {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--gris-claro);
+    transition: transform 0.3s ease; /* Transición para la animación de escala */
+}
+
+/* Título de la tarjeta */
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--gris-claro);
+}
+
+/* Texto descriptivo de la tarjeta */
+.service-card p {
+    font-size: 1.1rem;
+    color: var(--gris-claro);
+    line-height: 1.6;
+    opacity: 0.9; /* Ligera transparencia para el texto */
+}
+
+/* Efecto hover de la tarjeta */
+.service-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta */
+    background: rgba(255,255,255,0.15); /* Aumenta la opacidad del fondo */
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/* Efecto hover del icono */
+.service-card:hover i {
+    transform: scale(1.1); /* Aumenta el tamaño del icono */
+    color: var(--verde); /* Cambia el color al hover */
+}
+
+/*====================
+    Sección Proyectos
+=====================*/
+/* Contenedor principal de proyectos */
+#proyectos {
+    padding: 6vh 8vw;
+    text-align: center;
+    background-color: var(--gris-claro);
+    color: var(--azul-oscuro);
+}
+
+/* Título de la sección */
+#proyectos h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    color: var(--verde);
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Contenedor flexible para los proyectos */
+.proyectos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite el quiebre en móviles */
+    justify-content: center;
+    gap: 2rem; /* Espacio entre proyectos */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Tarjeta individual de proyecto */
+.proyecto {
+    flex: 1 1 350px; /* Base, shrink y grow */
+    min-width: 300px;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%); /* Gradiente diagonal */
+    border-radius: 15px;
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    position: relative;
+}
+
+/* Imagen del proyecto */
+.proyecto img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; /* Ajusta la imagen manteniendo proporción */
+    object-position: center;
+    transition: transform 0.5s ease; /* Transición suave para el zoom */
+}
+
+/* Contenedor del contenido del proyecto */
+.proyecto-content {
+    padding: 2rem;
+    flex: 1; /* Toma el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efecto hover en la imagen */
+.proyecto:hover img {
+    transform: scale(1.05); /* Efecto zoom */
+}
+
+/* Título del proyecto */
+.proyecto h3 {
+    font-size: 1.75rem;
+    padding: 1.2rem;
+    color: var(--gris-claro);
+    margin-bottom: 0.5rem;
+}
+
+/* Descripción del proyecto */
+.proyecto p {
+    font-size: 1.1rem;
+    padding: 0 1.5rem 1.5rem;
+    color: var(--gris-claro);
+    line-height: 1.6;
+    opacity: 0.9; /* Ligera transparencia */
+}
+
+/* Efecto hover de la tarjeta */
+.proyecto:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta */
+    background: linear-gradient(45deg, var(--azul-medio) 0%, var(--verde) 100%); /* Cambia el gradiente */
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/*====================
+    Sección Habilidades
+=====================*/
+/* Contenedor principal con gradiente */
+#skills {
+    padding: 6vh 8vw;
+    text-align: center;
+    background: linear-gradient(to right, var(--azul-oscuro), var(--azul-medio)); /* Gradiente de fondo */
+    border-radius: 15px;
+    color: var(--gris-claro);
+}
+
+/* Título de la sección */
+#skills h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    color: var(--gris-claro);
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Contenedor individual de cada habilidad */
+.skill-bar {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.1); /* Fondo semi-transparente */
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Transición suave para efectos hover */
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Contenedor de información de la habilidad */
+.skill-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px; /* Ancho mínimo para mantener el diseño */
+}
+
+/* Icono de la habilidad */
+.skill-info i {
+    font-size: 3.5rem;
+    color: var(--gris-claro);
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s ease; /* Transición para animación hover */
+}
+
+/* Nombre de la habilidad */
+.skill-info .skill-name {
+    font-size: 1.2rem;
+    color: var(--gris-claro);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Contenedor de la barra de progreso */
+.progress-bar {
+    flex: 1; /* Ocupa el espacio restante */
+    height: 2rem;
+    background: rgba(0,0,0,0.2); /* Fondo oscuro */
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden; /* Oculta el desbordamiento del brillo */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Barra de progreso interna */
+.progress-bar div {
+    height: 100%;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--azul-claro), var(--verde)); /* Gradiente de progreso */
+    transition: width 2s cubic-bezier(0.1, 0.5, 0.2, 1); /* Animación suave */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    font-size: 1rem;
+    color: var(--gris-claro);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Sombra del texto */
+}
+
+/* Porcentajes de habilidades individuales */
+.html {
+    --width: 90%; /* Variable para el ancho de la barra */
+    animation: fillBar 2.5s forwards ease-out; /* Animación de llenado */
+}
+
+.css {
+    --width: 85%;
+    animation: fillBar 2.5s forwards ease-out;
+}
+
+.javascript {
+    --width: 80%;
+    animation: fillBar 2.5s forwards ease-out;
+}
+
+.php {
+    --width: 70%;
+    animation: fillBar 2.5s forwards ease-out;
+}
+
+/* Efectos al pasar el ratón */
+.skill-bar:hover {
+    transform: translateY(-5px); /* Eleva la barra */
+    background: rgba(255,255,255,0.15); /* Aumenta opacidad */
+    border-color: rgba(255,255,255,0.2);
+}
+
+.skill-bar:hover .skill-info i {
+    transform: scale(1.1); /* Aumenta tamaño del icono */
+    color: var(--verde); /* Cambia color */
+}
+
+.skill-bar:hover .skill-name {
+    color: var(--verde); /* Cambia color del nombre */
+}
+
+/* Efecto de brillo animado */
+.progress-bar div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); /* Gradiente de brillo */
+    animation: shine 2s infinite; /* Animación infinita */
+}
+
+
+/*====================
+    Sección Testimonios
+=====================*/
+/* Contenedor principal de testimonios */
+#testimonials {
+    text-align: center;
+    padding: 4rem 4rem;
+    color: var(--gris-oscuro);
+    width: min(90%, 1200px); /* Ancho responsivo máximo */
+    margin: 0 auto;
+    background-color: var(--gris-claro);
+}
+
+/* Título de la sección */
+#testimonials h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    color: var(--verde);
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Contenedor flexible para las tarjetas */
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* Espacio entre tarjetas */
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Tarjeta individual de testimonio */
+.testimonial-card {
+    flex: 1 1 300px; 
+    min-width: 280px;
+    max-width: 350px;
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%); /* Gradiente diagonal */
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: var(--gris-claro);
+    transition: all 0.3s ease; /* Transición suave para efectos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen de perfil circular */
+.testimonial-card img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-bottom: 2rem;
+    border: 3px solid var(--gris-claro);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease;
+}
+
+/* Texto del testimonio */
+.testimonial-card p {
+    font-size: 1.1rem;
+    color: var(--gris-claro);
+    line-height: 1.6;
+    opacity: 0.9; /* Ligera transparencia */
+    margin-bottom: 1.5rem;
+}
+
+/* Efecto hover de la tarjeta */
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta */
+    background: linear-gradient(45deg, var(--azul-medio) 0%, var(--verde) 100%); /* Cambia el gradiente */
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/* Efecto hover en la imagen */
+.testimonial-card:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño */
+    border-color: var(--verde); /* Cambia el color del borde */
+}
+
+/*====================
+    Sección Contacto
+=====================*/
+/* Contenedor principal del formulario */
+#contact {
+    padding: 5vh 8vw;
+    background-color: var(--gris-claro); 
+    color: var(--gris-oscuro); 
+}
+
+/* Título de la sección */
+#contact h2 {
+    font-size: 3rem;
+    color: var(--verde);
+    margin-bottom: 3rem;
+}
+
+/* Contenedor flexible para el formulario */
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap; /* Permite el quiebre en móviles */
+}
+
+/* Formulario de contacto */
+.contact-form {
+    flex: 2; /* Ocupa el doble de espacio */
+    padding: 2rem;
+    background-color: var(--gris-claro); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Estructura del formulario */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grupos de campos del formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+/* Etiquetas de los campos */
+.form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--gris-oscuro);
+}
+
+/* Campos de entrada y área de texto */
+.form-group input, .form-group textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease; /* Transición suave del borde */
+}
+
+/* Estado focus de los campos */
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--verde);
+    outline: none;
+}
+
+/* Validación de campos */
+.form-group input:invalid, .form-group textarea:invalid {
+    border-color: red;
+}
+
+.form-group input:valid, .form-group textarea:valid {
+    border-color: green;
+}
+
+/* Área de texto */
+.form-group textarea {
+    height: 150px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Botón de envío */
+.form-group button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--azul-medio);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para hover */
+    align-self: flex-start;
+}
+
+/* Efecto hover del botón */
+.form-group button:hover {
+    background-color: var(--verde); /* Cambia el color al hover */
+}
+
+/*====================
+    Footer
+=====================*/
+/* Contenedor principal del footer */
+footer {
+    background-color: var(--gris-oscuro);
+    color: #fff;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+/* Contenedor flexible para las columnas del footer */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite el quiebre en móviles */
+    justify-content: center;
+    gap: 3rem;
+    width: min(90%, 1200px); /* Ancho máximo responsive */
+    margin: 0 auto;
+}
+
+/* Columnas del footer (info, enlaces y contacto) */
+.footer-info, 
+.footer-links, 
+.footer-contact {
+    flex: 1 1 250px; /* Base, shrink y grow */
+    min-width: 250px; /* Ancho mínimo antes de quebrar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Enlaces del footer */
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Transición suave para hover */
+    font-size: 1.1rem;
+}
+
+/* Información de contacto */
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+/*====================
+    Utilidades
+=====================*/
+/* Animaciones */
+@keyframes fillBar {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        width: var(--width);
+        opacity: 1;
+    }
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+
+@keyframes shine {
+    0% {
+        left: -50%;
+    } 
+    100% {
+        left: 150%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*====================
+    Media Queries
+=====================*/
+
+/* Para pantallas pequeñas (móviles verticales) */
+@media (max-width: 576px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    section {
+        padding: 4vh 3vw;
+    }
+
+    .hero-content {
+        flex-direction: column; /* Apila el texto y la imagen */
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .service-cards-container, .proyectos-container, .testimonial-container {
+        flex-direction: column; /* Apila las tarjetas */
+    }
+
+    .service-card, .proyecto, .testimonial-card {
+        max-width: 100%;
+    }
+
+    .skill-bar {
+        flex-direction: column; /* Apila la información y la barra */
+        align-items: stretch;
+    }
+
+    .skill-info {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text h3 {
+        font-size: 2rem;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .service-cards-container, .proyectos-container, .testimonial-container {
+        gap: 1.5rem;
+    }
+
+    .service-card, .proyecto, .testimonial-card {
+        max-width: 90%;
+    }
+}
+
+/* Para pantallas grandes (escritorios pequeños) */
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-text h3 {
+        font-size: 2.3rem;
+    }
+
+    .hero-text p {
+        font-size: 1.4rem;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .service-card, .proyecto, .testimonial-card {
+        flex: 1 1 45%; /* Dos columnas */
+    }
+
+    .skill-bar {
+        gap: 1rem;
+    }
+}
+
