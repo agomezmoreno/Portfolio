@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://kit.fontawesome.com/ebc567fdfe.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#testimonials">Testimonios</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de introducción con foto de perfil -->
+    <header id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h3>¡Hola! Soy</h3>
+                <h1>Álvaro Gómez</h1>
+                <h3>Desarrollador Web</h3>
+                <p>Me apasiona crear soluciones web eficientes y atractivas, combinando la funcionalidad técnica con un diseño intuitivo y accesible para los usuarios.</p>
+                <div class="social-icons">
+                    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="https://github.com/agomezmoreno" target="_blank">
+                    <button class="github-link"><i class="fa-brands fa-github"></i> Visita mi GitHub</button>
+                </a>
+            </div>
+            <img src="./img/foto-perfil.jpg" alt="Foto de perfil" class="hero-img">
+        </div>
+    </header>
+
+    <!-- Sección de servicios -->
+    <section id="services">
+        <h2>Mis Servicios</h2>
+        <div class="service-cards-container">
+            <div class="service-card">
+                <i class="fa-brands fa-html5"></i>
+                <h3>Desarrollo Front-End (HTML & CSS)</h3>
+                <p>Creo páginas web responsivas y visualmente atractivas utilizando HTML y CSS, asegurando una experiencia de usuario óptima en todos los dispositivos.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-brands fa-js"></i>
+                <h3>Desarrollo Interactivo (JavaScript)</h3>
+                <p>Incorporo JavaScript para crear funcionalidades interactivas y dinámicas que mejoran la experiencia del usuario en la web.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-brands fa-php"></i>
+                <h3>Desarrollo Back-End (PHP)</h3>
+                <p>Desarrollo aplicaciones web robustas del lado del servidor con PHP, gestionando bases de datos y APIs para aplicaciones dinámicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de proyectos -->
+    <section id="proyectos">
+        <h2>Mis Proyectos</h2>
+        <div class="proyectos-container">
+            <!-- Cada artículo es un proyecto -->
+            <article class="proyecto">
+                <img src="./img/projects/proyecto1.png" alt="Proyecto 1">
+                <h3>Vanilla JavaScript Stopwatch</h3>
+                <p>Un cronómetro interactivo desarrollado con Vanilla JavaScript, donde los usuarios pueden iniciar, detener y restablecer el tiempo.</p>
+            </article>
+            <article class="proyecto">
+                <img src="/img/projects/proyecto2.png" alt="Proyecto 2">
+                <h3>Vanilla JavaScript Hangman Game</h3>
+                <p>Un juego de ahorcado interactivo donde los usuarios deben adivinar las letras correctas antes de que se complete el dibujo del ahorcado.</p>
+            </article>
+            <article class="proyecto">
+                <img src="/img/projects/proyecto3.png" alt="Proyecto 3">
+                <h3>Juego de Parejas (Pairs Game)</h3>
+                <p>Un juego de memoria donde los usuarios deben encontrar y emparejar las cartas con las mismas imágenes.</p>
+            </article>
+            <article class="proyecto">
+                <img src="/img/projects/proyecto4.jpg" alt="Proyecto 4">
+                <h3>Grocery Bud</h3>
+                <p>Una aplicación para gestionar listas de compras, donde los usuarios pueden agregar, editar y eliminar elementos de su lista de supermercado.</p>
+            </article>
+            <article class="proyecto">
+                <img src="./img/projects/proyecto5.png" alt="Proyecto 5">
+                <h3>Pong Game</h3>
+                <p>El clásico juego Pong implementado en JavaScript, donde los jugadores controlan palas para hacer rebotar la pelota e intentar marcar puntos.</p>
+            </article>
+            <article class="proyecto">
+                <img src="img/projects/proyecto6.png" alt="Proyecto 6">
+                <h3>Calculadora en JavaScript</h3>
+                <p>Una calculadora funcional desarrollada con HTML, CSS y JavaScript, que permite realizar operaciones matemáticas básicas como suma, resta, multiplicación y división.</p>
+            </article>            
+        </div>
+    </section>
+    
+    <!-- Sección de habilidades -->
+    <section id="skills">
+        <h2>Mis Habilidades</h2>
+        <div class="skill-bar">
+            <div class="skill-info">
+                <i class="fa-brands fa-html5 html_icon"></i>
+                <span class="skill-name">HTML</span>
+            </div>
+            <div class="progress-bar">
+                <div class="html">90%</div>
+            </div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info">
+                <i class="fa-brands fa-css3-alt css_icon"></i>
+                <span class="skill-name">CSS</span>
+            </div>
+            <div class="progress-bar">
+                <div class="css">85%</div>
+            </div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info">
+                <i class="fa-brands fa-js js_icon"></i>
+                <span class="skill-name">JavaScript</span>
+            </div>
+            <div class="progress-bar">
+                <div class="javascript">80%</div>
+            </div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info">
+                <i class="fa-brands fa-php php_icon"></i>
+                <span class="skill-name">PHP</span>
+            </div>
+            <div class="progress-bar">
+                <div class="php">70%</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de testimonios -->
+    <section id="testimonials">
+        <h2>Testimonios</h2>
+        <div class="testimonial-container">
+            <!-- Cada tarjeta representa un testimonio -->
+            <div class="testimonial-card">
+                <p>"¡Excelente trabajo, siempre entrega a tiempo!"</p>
+                <img src="./img/clients/cliente1.jpg" alt="Cliente 1">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Un diseñador increíble con una gran comprensión de la experiencia de usuario."</p>
+                <img src="./img/clients/cliente2.jpg" alt="Cliente 2">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+            <div class="testimonial-card">
+                <p>"¡Altamente recomendado para cualquier proyecto de diseño UI/UX!"</p>
+                <img src="./img/clients/cliente3.jpg" alt="Cliente 3">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+            <div class="testimonial-card">
+                <p>"¡Trabajo excepcional y atención al detalle!"</p>
+                <img src="./img/clients/cliente4.jpg" alt="Cliente 4">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Un verdadero profesional, altamente capacitado en diseño."</p>
+                <img src="./img/clients/cliente5.jpg" alt="Cliente 5">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Muy confiable, siempre produce excelentes resultados."</p>
+                <img src="./img/clients/cliente6.jpg" alt="Cliente 6">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de contacto -->
+    <section id="contact">
+        <h2>Contáctame</h2>
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <form action="#">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Número de teléfono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tu mensaje</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Enviar mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Álvaro Gómez. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Sobre mí</a>
+                <a href="#services">Servicios</a>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone"></i>+34 000000000</p>
+                <p><i class="fas fa-envelope"></i> email@email.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
